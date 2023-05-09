@@ -32,4 +32,8 @@ public class LasScript : MonoBehaviour
     {
         Destroy(laser);
     }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        Destroy(laser);
+    }
 }

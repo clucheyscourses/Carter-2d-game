@@ -15,7 +15,6 @@ public class BossScript : MonoBehaviour
     public Sprite egg_0;
     public Sprite egg_4;
     public float health = 100f;
-    public Collider2D col;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +25,7 @@ public class BossScript : MonoBehaviour
     void Update()
     {
         changeSprite();
+        
         
     }
     void changeSprite() 
@@ -63,5 +63,16 @@ public class BossScript : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Laser") {
+            health = health - 1;
+            boss.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == "Laser") {
+            boss.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
 }
