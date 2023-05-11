@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthScript : MonoBehaviour
+public class BossHealthScript : MonoBehaviour
 {
     private const float MAX_HEALTH = 100f;
 
@@ -11,7 +11,7 @@ public class HealthScript : MonoBehaviour
 
     private Image healthBar;
 
-    public GameObject ship;
+    public GameObject boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class HealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health = ship.GetComponent<ShipMoveScript>().playerHealth;
+        health = boss.GetComponent<BossScript>().health;
         healthBar.fillAmount = health / MAX_HEALTH;
     }
 }

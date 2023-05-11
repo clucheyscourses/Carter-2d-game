@@ -68,6 +68,11 @@ public class BossScript : MonoBehaviour
             health = health - 1;
             boss.GetComponent<SpriteRenderer>().color = Color.red;
         }
+
+        if (other.tag == "Player") {
+            ship.GetComponent<ShipMoveScript>().playerHealth = ship.GetComponent<ShipMoveScript>().playerHealth - 10;
+            health = health - 1;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
