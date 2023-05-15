@@ -30,7 +30,7 @@ public class BossScript : MonoBehaviour
     }
     void changeSprite() 
     {
-        if(ship.transform.position.x >= -3 && ship.transform.position.x <= 1 && ship.transform.position.y <= 0) {
+        if(ship.transform.position.x >= -3 && ship.transform.position.x <= 3 && ship.transform.position.y <= 0) {
             boss.GetComponent<SpriteRenderer>().sprite = egg_6;
         }
 
@@ -42,13 +42,13 @@ public class BossScript : MonoBehaviour
             boss.GetComponent<SpriteRenderer>().sprite = egg_5;
         }
 
-        if(ship.transform.position.x >= -3 && ship.transform.position.x <= 1 && ship.transform.position.y >= 0) {
+        if(ship.transform.position.x >= -3 && ship.transform.position.x <= 3 && ship.transform.position.y >= 0) {
             boss.GetComponent<SpriteRenderer>().sprite = egg_2;
         }
 
-        if(ship.transform.position.x <= -3 && ship.transform.position.x >= -20 && ship.transform.position.y >= 0) {
-            boss.GetComponent<SpriteRenderer>().sprite = egg_1;
-        }
+            if(ship.transform.position.x <= -3 && ship.transform.position.x >= -20 && ship.transform.position.y >= 0) {
+                boss.GetComponent<SpriteRenderer>().sprite = egg_1;
+            }
 
         if(ship.transform.position.x >= 3 && ship.transform.position.x <= 20 && ship.transform.position.y >= 0) {
             boss.GetComponent<SpriteRenderer>().sprite = egg_3;
