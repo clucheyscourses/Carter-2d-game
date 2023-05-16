@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 4878875506205542241}
   - component: {fileID: 4878875506205542254}
   m_Layer: 0
-  m_Name: Ship 1
+  m_Name: 'Ship '
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
