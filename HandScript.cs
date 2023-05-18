@@ -6,24 +6,29 @@ public class HandScript : MonoBehaviour
 {
     public GameObject ship;
     public GameObject hand;
-    public float waitTime;
+    public float timer;
     public GameObject projectile;
-    public Animator ani;
-    public AnimationClip anim;
-  
-
+    public Animator anim;
+     
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        waitTime = anim.length + 6f;
-        InvokeRepeating("PlayAnim", 6f, waitTime);
     }
-    void PlayAnim() {
-            ani.Play("Hand Animation");
-        }
+    
     // Update is called once per frame
     void Update()
     {
+        timer = timer + 1 * Time.deltaTime;
+        if (timer > 1) {
+            anim.SetBool("Bool", true);
+        }
+        if (timer > 3.2f) {
+            Instantiate(projectile);
+            anim.SetBool("Bool", false);
+            timer = 0;
+        }
         
         if(ship.transform.position.x >= -3 && ship.transform.position.x <= 3 && ship.transform.position.y <= 0) {
             transform.position = new Vector3(-0.05f, -1f, 0f);   

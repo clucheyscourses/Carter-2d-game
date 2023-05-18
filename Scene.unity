@@ -350,10 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 1028083365}
   hand: {fileID: 1783738566}
-  waitTime: 0
-  projectile: {fileID: 0}
-  ani: {fileID: 1783738569}
-  anim: {fileID: 7400000, guid: 5d29292567634495ab727769293f739b, type: 2}
+  timer: 0
+  projectile: {fileID: 3867937215453055322, guid: 34a8840e9f1a441a9996b54b3d528c8a, type: 3}
+  anim: {fileID: 1783738569}
 --- !u!95 &1783738569 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2549092702472661713, guid: 6715e7ab8a6f4410ba5bbe8d4cd29201, type: 3}
@@ -439,14 +438,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 220743140689226799, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -861
+      objectReference: {fileID: 0}
     - target: {fileID: 220743141208022778, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
       propertyPath: boss
       value: 
       objectReference: {fileID: 654062616}
+    - target: {fileID: 220743141381144012, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -970
+      objectReference: {fileID: 0}
     - target: {fileID: 220743141897548934, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
       propertyPath: ship
       value: 
       objectReference: {fileID: 1028083365}
+    - target: {fileID: 220743142072005193, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 220743142072005193, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 220743142072005193, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 220743142072005195, guid: efc99ff334bea47d7a44544e3ca8286c, type: 3}
       propertyPath: m_Name
       value: Canvas
