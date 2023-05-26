@@ -70,7 +70,6 @@ public class BossScript : MonoBehaviour
         }
 
         if (other.tag == "Player") {
-            ship.GetComponent<ShipMoveScript>().playerHealth = ship.GetComponent<ShipMoveScript>().playerHealth - 10;
             health = health - 1;
         }
     }

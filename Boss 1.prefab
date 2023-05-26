@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2549092702472661719
+--- !u!1 &5323788113253073649
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2549092702472661712}
-  - component: {fileID: 2549092702472661714}
-  - component: {fileID: 2549092702472661713}
+  - component: {fileID: 5323788113253073654}
+  - component: {fileID: 5323788113253073652}
+  - component: {fileID: 5323788113253073655}
+  - component: {fileID: 7674652029567149750}
   m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
@@ -18,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2549092702472661712
+--- !u!4 &5323788113253073654
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092702472661719}
+  m_GameObject: {fileID: 5323788113253073649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.64, y: -0.09, z: 0}
   m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2549092703447988985}
+  m_Father: {fileID: 5323788114278699743}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2549092702472661714
+--- !u!212 &5323788113253073652
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092702472661719}
+  m_GameObject: {fileID: 5323788113253073649}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -85,14 +86,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2549092702472661713
+--- !u!95 &5323788113253073655
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092702472661719}
+  m_GameObject: {fileID: 5323788113253073649}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6e6f704456afd4119867170cb8d59cc7, type: 2}
@@ -106,7 +107,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &2549092703447988989
+--- !u!114 &7674652029567149750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323788113253073649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3af41a172d30417794e160a0dc15882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  hand: {fileID: 5323788113253073649}
+  timer: 0
+  projectile: {fileID: 3867937215453055322, guid: 34a8840e9f1a441a9996b54b3d528c8a, type: 3}
+  anim: {fileID: 5323788113253073655}
+  checkTimer: 0
+--- !u!1 &5323788114278699739
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,40 +133,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2549092703447988985}
-  - component: {fileID: 2549092703447988984}
-  - component: {fileID: 2549092703447988991}
-  - component: {fileID: 2549092703447988990}
+  - component: {fileID: 5323788114278699743}
+  - component: {fileID: 5323788114278699742}
+  - component: {fileID: 5323788114278699737}
+  - component: {fileID: 5323788114278699736}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: Boss 1
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2549092703447988985
+--- !u!4 &5323788114278699743
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092703447988989}
+  m_GameObject: {fileID: 5323788114278699739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2549092702472661712}
+  - {fileID: 5323788113253073654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2549092703447988984
+--- !u!212 &5323788114278699742
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092703447988989}
+  m_GameObject: {fileID: 5323788114278699739}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -193,13 +212,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &2549092703447988991
+--- !u!70 &5323788114278699737
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092703447988989}
+  m_GameObject: {fileID: 5323788114278699739}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -209,20 +228,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0.009845704, y: 0}
   m_Size: {x: 0.8938326, y: 1}
   m_Direction: 0
---- !u!114 &2549092703447988990
+--- !u!114 &5323788114278699736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549092703447988989}
+  m_GameObject: {fileID: 5323788114278699739}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84be8f45ea081487aa1cad87b9f9602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
-  boss: {fileID: 2549092703447988989}
+  boss: {fileID: 5323788114278699739}
   egg_6: {fileID: 1855911124, guid: 3ba81cbcc2c33420bab34c453d8e07ac, type: 3}
   egg_7: {fileID: -1638431917, guid: 3ba81cbcc2c33420bab34c453d8e07ac, type: 3}
   egg_5: {fileID: 328395305, guid: 3ba81cbcc2c33420bab34c453d8e07ac, type: 3}

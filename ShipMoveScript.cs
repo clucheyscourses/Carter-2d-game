@@ -59,5 +59,13 @@ public class ShipMoveScript : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target3, 100);
         }
+
+    }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.tag == "Boss") {
+            playerHealth = playerHealth - 10;
+            playerHealth = playerHealth - 10;
+        }
     }
 }

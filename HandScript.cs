@@ -9,27 +9,54 @@ public class HandScript : MonoBehaviour
     public float timer;
     public GameObject projectile;
     public Animator anim;
+    public float checkTimer;
+    
      
     
     
     // Start is called before the first frame update
     void Start()
     {
+        
     }
     
     // Update is called once per frame
     void Update()
     {
+        changeSprite();
         timer = timer + 1 * Time.deltaTime;
-        if (timer > 1) {
+        
+        if (timer > 0) {
             anim.SetBool("Bool", true);
         }
-        if (timer > 3.2f) {
-            Instantiate(projectile);
+        if (timer > 2.2f) {
+            if (ship.transform.position.y < 3 && ship.transform.position.y > -3) {
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(0f, 0.5f, 0f), transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(0f, -0.5f, 0f), transform.rotation);
+            } else { 
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(0.5f, 0f, 0f), transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(-0.5f, 0f, 0f), transform.rotation);
+            }
             anim.SetBool("Bool", false);
             timer = 0;
         }
-        
+
+        checkTimer = checkTimer + 1 * Time.deltaTime;
+
+        if (checkTimer > 10) {
+            if (Input.GetKey(KeyCode.LeftArrow) != true)
+            ship.GetComponent<ShipMoveScript>().playerHealth = ship.GetComponent<ShipMoveScript>().playerHealth - 100;
+        }
+
+
+
+
+
+
+    }
+    void changeSprite() {
         if(ship.transform.position.x >= -3 && ship.transform.position.x <= 3 && ship.transform.position.y <= 0) {
             transform.position = new Vector3(-0.05f, -1f, 0f);   
             transform.rotation = Quaternion.Euler(0, 0, 0); 
@@ -62,6 +89,5 @@ public class HandScript : MonoBehaviour
             transform.position = new Vector3(0.5f, -0.7f, 0);
             transform.rotation = Quaternion.Euler(0, 0, 45);
         }
-        
-}
+    }
 }
