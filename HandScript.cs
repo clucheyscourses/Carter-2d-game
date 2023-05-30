@@ -9,7 +9,7 @@ public class HandScript : MonoBehaviour
     public float timer;
     public GameObject projectile;
     public Animator anim;
-    public float checkTimer;
+    
     
      
     
@@ -43,12 +43,7 @@ public class HandScript : MonoBehaviour
             timer = 0;
         }
 
-        checkTimer = checkTimer + 1 * Time.deltaTime;
-
-        if (checkTimer > 10) {
-            if (Input.GetKey(KeyCode.LeftArrow) != true)
-            ship.GetComponent<ShipMoveScript>().playerHealth = ship.GetComponent<ShipMoveScript>().playerHealth - 100;
-        }
+        
 
 
 

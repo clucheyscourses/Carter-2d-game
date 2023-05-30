@@ -7,6 +7,7 @@ public class ShipMoveScript : MonoBehaviour
     public GameObject ship;
     public float speed = 7f;
     public float playerHealth = 100f;
+    public float checkTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,22 +25,26 @@ public class ShipMoveScript : MonoBehaviour
         {
             transform.position = transform.position + Vector3.left * speed * Time.deltaTime;
             transform.rotation = Quaternion.Slerp(transform.rotation, target, 100);
+            checkTimer = 0;
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) 
         {
             transform.position = transform.position + Vector3.right * speed * Time.deltaTime;
             transform.rotation = Quaternion.Slerp(transform.rotation, target2, 100);
+            checkTimer = 0;
         }
 
         if (Input.GetKey(KeyCode.UpArrow)) 
         {
             transform.position = transform.position + Vector3.up * speed * Time.deltaTime;
+            checkTimer = 0;
         }
 
         if (Input.GetKey(KeyCode.DownArrow)) 
         {
             transform.position = transform.position + Vector3.down * speed * Time.deltaTime;
+            checkTimer = 0;
         }
         
         Vector3 mousePos = Input.mousePosition;
@@ -66,6 +71,24 @@ public class ShipMoveScript : MonoBehaviour
         if (other.tag == "Boss") {
             playerHealth = playerHealth - 10;
             playerHealth = playerHealth - 10;
+        }
+    }
+
+    void checkForMove() {
+        if(!Input.GetKey(KeyCode.LeftArrow)) {
+            checkTimer = checkTimer + 1 * Time.deltaTime;
+        }
+        if(!Input.GetKey(KeyCode.RightArrow)) {
+            checkTimer = checkTimer + 1* Time.deltaTime;
+        }
+        if(!Input.GetKey(KeyCode.UpArrow)) {
+            checkTimer = checkTimer + 1* Time.deltaTime;
+        }
+        if(!Input.GetKey(KeyCode.DownArrow)) {
+            checkTimer = checkTimer + 1 * Time.deltaTime;
+        }
+        if (checkTimer > 10) {
+            playerHealth = 0;
         }
     }
 }
