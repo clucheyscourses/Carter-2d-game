@@ -8,7 +8,9 @@ public class HandScript : MonoBehaviour
     public GameObject hand;
     public float timer;
     public GameObject projectile;
+    public GameObject instaKillProj;
     public Animator anim;
+    public bool mainAttack;
     
     
      
@@ -17,40 +19,24 @@ public class HandScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instantiate(instaKillProj, transform.position, transform.rotation);
+        mainAttack = true;
     }
     
     // Update is called once per frame
     void Update()
     {
         changeSprite();
-        timer = timer + 1 * Time.deltaTime;
         
-        if (timer > 0) {
-            anim.SetBool("Bool", true);
+        if (mainAttack == true) 
+        {
+        attack();
         }
-        if (timer > 2.2f) {
-            if (ship.transform.position.y < 3 && ship.transform.position.y > -3) {
-                Instantiate(projectile, transform.position, transform.rotation);
-                Instantiate(projectile, transform.position + new Vector3(0f, 0.5f, 0f), transform.rotation);
-                Instantiate(projectile, transform.position + new Vector3(0f, -0.5f, 0f), transform.rotation);
-            } else { 
-                Instantiate(projectile, transform.position, transform.rotation);
-                Instantiate(projectile, transform.position + new Vector3(0.5f, 0f, 0f), transform.rotation);
-                Instantiate(projectile, transform.position + new Vector3(-0.5f, 0f, 0f), transform.rotation);
-            }
-            anim.SetBool("Bool", false);
-            timer = 0;
+        if (ship.GetComponent<ShipMoveScript>().cheat == true) {
+
         }
-
-        
-
-
-
-
-
-
     }
+   
     void changeSprite() {
         if(ship.transform.position.x >= -3 && ship.transform.position.x <= 3 && ship.transform.position.y <= 0) {
             transform.position = new Vector3(-0.05f, -1f, 0f);   
@@ -83,6 +69,27 @@ public class HandScript : MonoBehaviour
         if(ship.transform.position.x >= 3 && ship.transform.position.x <= 20 && ship.transform.position.y <= -3) { 
             transform.position = new Vector3(0.5f, -0.7f, 0);
             transform.rotation = Quaternion.Euler(0, 0, 45);
+        }
+    }
+
+    void attack() {
+        timer = timer + 1 * Time.deltaTime;
+        
+        if (timer > 0) {
+            anim.SetBool("Bool", true);
+        }
+        if (timer > 2.2f) {
+            if (ship.transform.position.y < 3 && ship.transform.position.y > -3) {
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(0f, 0.5f, 0f), transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(0f, -0.5f, 0f), transform.rotation);
+            } else { 
+                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(0.5f, 0f, 0f), transform.rotation);
+                Instantiate(projectile, transform.position + new Vector3(-0.5f, 0f, 0f), transform.rotation);
+            }
+            anim.SetBool("Bool", false);
+            timer = 0;
         }
     }
 }

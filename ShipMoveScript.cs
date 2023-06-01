@@ -8,15 +8,19 @@ public class ShipMoveScript : MonoBehaviour
     public float speed = 7f;
     public float playerHealth = 100f;
     public float checkTimer;
+    public bool cheat;
+    public GameObject wayPoint;
     // Start is called before the first frame update
     void Start()
     {
-        
+        cheat = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        updatePosition();
+        checkForMove();
         Quaternion target = Quaternion.Euler(0, 45, 0);
         Quaternion target2 = Quaternion.Euler(0, -45, 0);
         resetRotation();
@@ -75,20 +79,14 @@ public class ShipMoveScript : MonoBehaviour
     }
 
     void checkForMove() {
-        if(!Input.GetKey(KeyCode.LeftArrow)) {
-            checkTimer = checkTimer + 1 * Time.deltaTime;
-        }
-        if(!Input.GetKey(KeyCode.RightArrow)) {
-            checkTimer = checkTimer + 1* Time.deltaTime;
-        }
-        if(!Input.GetKey(KeyCode.UpArrow)) {
-            checkTimer = checkTimer + 1* Time.deltaTime;
-        }
-        if(!Input.GetKey(KeyCode.DownArrow)) {
-            checkTimer = checkTimer + 1 * Time.deltaTime;
-        }
-        if (checkTimer > 10) {
+        checkTimer = checkTimer + 1 * Time.deltaTime;
+        if (checkTimer > 2f) {
             playerHealth = 0;
+            cheat = true;
         }
+    }
+
+    void updatePosition() {
+        wayPoint.transform.position = transform.position;
     }
 }
