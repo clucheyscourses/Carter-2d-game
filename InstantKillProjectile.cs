@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class InstantKillProjectile : MonoBehaviour
 {
-    private GameObject ship;
-    private Vector3 shipPos;
+    public GameObject ship;
+    public Vector3 shipPos;
     public GameObject instaProjectile;
-    private float speed = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        ship = GameObject.Find("Player");
+        ship = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        shipPos = new Vector3(ship.transform.position.x, transform.position.y, ship.transform.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, shipPos, speed * Time.deltaTime);
+        shipPos = new Vector3(ship.transform.position.x, ship.transform.position.y, 0);
+        transform.position = Vector3.MoveTowards(transform.position, shipPos, 3 * Time.deltaTime);
     }
 
     public void OnTriggerEnter2D(Collider2D other) {

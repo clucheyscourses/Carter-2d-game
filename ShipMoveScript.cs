@@ -9,7 +9,6 @@ public class ShipMoveScript : MonoBehaviour
     public float playerHealth = 100f;
     public float checkTimer;
     public bool cheat;
-    public GameObject wayPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +18,6 @@ public class ShipMoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updatePosition();
         checkForMove();
         Quaternion target = Quaternion.Euler(0, 45, 0);
         Quaternion target2 = Quaternion.Euler(0, -45, 0);
@@ -70,13 +68,18 @@ public class ShipMoveScript : MonoBehaviour
         }
 
     }
+   
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.tag == "Boss") {
             playerHealth = playerHealth - 10;
-            playerHealth = playerHealth - 10;
+        }
+        if (other.tag == "InstaKill") {
+            playerHealth = playerHealth - 100;   
         }
     }
+
+    
 
     void checkForMove() {
         checkTimer = checkTimer + 1 * Time.deltaTime;
@@ -86,7 +89,5 @@ public class ShipMoveScript : MonoBehaviour
         }
     }
 
-    void updatePosition() {
-        wayPoint.transform.position = transform.position;
-    }
+    
 }
